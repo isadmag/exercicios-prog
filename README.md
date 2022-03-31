@@ -108,7 +108,68 @@ break;
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Exercício 3
 
+using System;
 
+namespace exe3
+{
+    class Program
+    {
+        static void Main()
+        {
+            try
+            {
+                Console.WriteLine("digite um valor entre 350 e 8750");//digita o numero na tela
+                string num = Console.ReadLine();//transforma o digita em string
+                int numInt = int.Parse(num);
+                int num4 = 0;
+
+                if (numInt >= 350 && numInt <= 8750)
+                {
+
+                    char posição1 = num[0];
+                    int covert1 = (int)char.GetNumericValue(posição1);
+                    int num1 = covert1 % 2;
+
+                    char posição2 = num[1];
+                    int covert2 = (int)char.GetNumericValue(posição2);
+                    int num2 = covert2 % 2;
+
+                    char posição3 = num[2];
+                    int covert3 = (int)char.GetNumericValue(posição3);
+                    int num3 = covert3 % 2;
+
+                    try
+                    {
+
+                        char posição4 = num[3];
+                        int covert4 = (int)char.GetNumericValue(posição4);
+                        num4 = covert4 % 2;
+
+                        int result = num1 + num2 + num3 + num4;
+                        Console.WriteLine("quantidade de impares:" + result);
+                        Console.WriteLine("quantidade de pares:" + (4 - result));
+                    }
+                    catch
+                    {
+                        int result = num1 + num2 + num3;
+                        Console.WriteLine("quantidade de impares:" + result);
+                        Console.WriteLine("quantidade de pares:" + (3 - result));
+
+                    }
+
+                }
+                else
+                {
+                    Console.WriteLine("adicione um tamanho de caractere valido entre 3 e 4");
+                }
+            }
+            catch
+            {
+                Console.WriteLine("valor invalido");
+            }
+        }
+    }
+}
 
 
 
